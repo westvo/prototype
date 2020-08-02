@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="col align-self-center">
+    <h3>Question form</h3>
+    <form [formGroup]="form" class="row">
+      <div *ngFor="let question of questions" [ngClass]="question.cssClass">
+        <app-dynamic-form [question]="question" [form]="form"></app-dynamic-form>
+      </div>
+    </form>
+    <div class="form-row">
+      <button class="btn btn-primary" (click)="onSubmit()" [disabled]="!form.valid">Save</button>
+    </div>
+    <div *ngIf="payLoad">
+      <strong>Saved the following values</strong><br>{{payLoad}}
+    </div>
+  </div>
+</div>

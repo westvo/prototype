@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="col align-self-center">
+    <h3>Login form</h3>
+    <form [formGroup]="form" class="row">
+      <div *ngFor="let control of controls" [ngClass]="control.cssClass">
+        <app-dynamic-form [question]="control" [form]="form"></app-dynamic-form>
+      </div>
+    </form>
+    <div class="mt-2 float-right">
+      <button class="btn btn-primary" (click)="onSubmit()" [disabled]="!form.valid">Login</button>
+    </div>
+    <div *ngIf="payLoad">
+      <strong>Saved the following values</strong><br>{{payLoad}}
+    </div>
+  </div>
+</div>
