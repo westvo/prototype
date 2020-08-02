@@ -12,6 +12,12 @@ import { FormLoginComponent } from './LoginForm/login-form.component';
 import { LoginFormService } from './LoginForm/login-form.service';
 import { FormRadioButtonComponent } from './FormModule/form-radio-button.component';
 import { EditorComponent } from './EditorComponent/editor.component';
+import { PropertiesComponent } from './EditorComponent/Properties/properties.component';
+import { PropertiesFormService } from './EditorComponent/Properties/properties.service';
+import { FormControlService } from './FormModule/form-control.service';
+import { EditorControlsComponent } from './EditorComponent/Controls/control.component';
+import { ControlFormService } from './EditorComponent/Controls/control.service';
+import { EditorMainComponent } from './EditorComponent/Main/main.component';
 
 
 @NgModule({
@@ -22,13 +28,16 @@ import { EditorComponent } from './EditorComponent/editor.component';
     FormRadioButtonComponent,
     FormLoginComponent,
     EditorComponent,
+    PropertiesComponent,
+    EditorControlsComponent,
+    EditorMainComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
   ],
-  providers: [QuestionFormService, LoginFormService],
+  providers: [QuestionFormService, LoginFormService, PropertiesFormService, FormControlService, ControlFormService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

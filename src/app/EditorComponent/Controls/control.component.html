@@ -1,0 +1,15 @@
+<div class="controls">
+  <div class="form">
+    <h2>Form</h2>
+    <ul *ngIf="controls" class="list-group">
+      <li *ngFor="let control of controls" class="list-group-item" (click)="selectControl(control)">
+        <div>
+          <h5 class="mb-1"> {{control.label}} </h5>
+        </div>
+        <p class="mb-1">{{control.controlType}}</p>
+      </li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+</div>

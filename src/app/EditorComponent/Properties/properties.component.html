@@ -1,0 +1,14 @@
+<div class="properties">
+  <h3>Properties</h3>
+  <form [formGroup]="form" class="row">
+    <div *ngFor="let question of properties" [ngClass]="question.cssClass">
+      <app-dynamic-form [question]="question" [form]="form" (change)="onSubmit()" [prefixId]="properties"></app-dynamic-form>
+    </div>
+  </form>
+  <div class="form-row">
+    <button class="btn btn-primary" (click)="onSubmit()" [disabled]="!form.valid">Save</button>
+  </div>
+  <div *ngIf="payLoad">
+    <strong>Saved the following values</strong><br>{{payLoad}}
+  </div>
+</div>

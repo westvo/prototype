@@ -3,25 +3,29 @@
 
   <div [ngSwitch]="question.controlType">
 
-    <input *ngSwitchCase="'textbox'" [formControlName]="question.key" [id]="question.key" [type]="question.type" class="form-control">
+    <div *ngSwitchCase="'textbox'" [ngStyle]="{'border':currentControl.key === question.key ? '2px solid green' : '' }">
+      <input [formControlName]="question.key" [id]="prefixId + question.key"
+      [type]="question.type" class="form-control">
+    </div>
+   
+    <textarea *ngSwitchCase="'textarea'" [formControlName]="question.key" [id]="prefixId + question.key" rows="4"
+      class="form-control"></textarea>
 
-    <textarea *ngSwitchCase="'textarea'" [formControlName]="question.key" [id]="question.key" 
-    rows="4"
-     class="form-control"></textarea>
-
-    <select [id]="question.key" *ngSwitchCase="'dropdown'" [formControlName]="question.key" class="form-control">
+    <select [id]="prefixId + question.key" *ngSwitchCase="'dropdown'" [formControlName]="question.key"
+      class="form-control">
       <option *ngFor="let opt of question.options" [value]="opt.key">{{opt.value}}</option>
     </select>
 
-    <div *ngSwitchCase="'checkbox-group'">
+    <div *ngSwitchCase="'checkbox-group'" [id]=" prefixId + question.key ">
       <div *ngIf="question && form">
-        <app-form-checkbox-component [options]="question.options" [control]='form.controls[question.key]'>
+        <app-form-checkbox-component [options]="question.options" [control]='form.controls[question.key]' [prefixId]="prefixId">
         </app-form-checkbox-component>
       </div>
     </div>
 
     <div *ngSwitchCase="'radio-button'">
-      <app-form-radio-button-component [options]="question.options" [control]='form.controls[question.key]'></app-form-radio-button-component>
+      <app-form-radio-button-component [options]="question.options" [control]='form.controls[question.key]'  [prefixId]="prefixId">
+      </app-form-radio-button-component>
     </div>
 
     <div class="errorMessage" *ngIf="!isValid">{{question.label}} is required</div>

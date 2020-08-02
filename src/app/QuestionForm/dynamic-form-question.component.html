@@ -3,7 +3,7 @@
     <h3>Question form</h3>
     <form [formGroup]="form" class="row">
       <div *ngFor="let question of questions" [ngClass]="question.cssClass">
-        <app-dynamic-form [question]="question" [form]="form"></app-dynamic-form>
+        <app-dynamic-form [question]="question" [form]="form" [currentControl]="currentControl"></app-dynamic-form>
       </div>
     </form>
     <div class="form-row">

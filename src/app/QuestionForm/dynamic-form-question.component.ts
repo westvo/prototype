@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 import { FormBase } from '../FormModule/form-base';
@@ -9,11 +9,13 @@ import { FormControlService } from '../FormModule/form-control.service';
   templateUrl: './dynamic-form-question.component.html',
   providers: [ FormControlService ]
 })
-export class DynamicFormQuestionComponent implements OnInit {
+export class DynamicFormQuestionComponent implements OnInit, OnChanges {
 
   @Input() questions: FormBase<string>[] = [];
   form: FormGroup;
   payLoad = '';
+
+  @Input() currentControl;
 
   constructor(private qcs: FormControlService) {  }
 
@@ -23,5 +25,8 @@ export class DynamicFormQuestionComponent implements OnInit {
 
   onSubmit() {
     this.payLoad = JSON.stringify(this.form.getRawValue());
+  }
+  ngOnChanges($event) {
+    console.log('DynamicFormQuestionComponent-ngOnChanges', this.currentControl);
   }
 }

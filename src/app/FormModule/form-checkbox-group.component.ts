@@ -7,7 +7,7 @@ import { FormControl } from '@angular/forms';
   template: `
   <div *ngFor="let data of options; let i=index">
     <label>
-      <input type="checkbox" [value]="data.key" (change)="onCheckboxChange($event)" />
+      <input type="checkbox" [value]="data.key" (change)="onCheckboxChange($event)" [id]="prefixId + data.key" />
       {{data.value}}
     </label>
   </div>
@@ -20,6 +20,7 @@ export class FormCheckboxGroupComponent implements OnInit {
   @Input() formControlName: string;
   @Input() control: FormControl;
 
+  @Input() prefixId = '';
   ngOnInit() {
 
   }
