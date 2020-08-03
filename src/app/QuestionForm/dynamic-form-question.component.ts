@@ -7,7 +7,7 @@ import { FormControlService } from '../FormModule/form-control.service';
 @Component({
   selector: 'app-dynamic-form-question',
   templateUrl: './dynamic-form-question.component.html',
-  providers: [ FormControlService ]
+  providers: [FormControlService]
 })
 export class DynamicFormQuestionComponent implements OnInit, OnChanges {
 
@@ -15,9 +15,11 @@ export class DynamicFormQuestionComponent implements OnInit, OnChanges {
   form: FormGroup;
   payLoad = '';
 
-  @Input() currentControl;
 
-  constructor(private qcs: FormControlService) {  }
+  @Input() currentControl;
+  @Input() props;
+
+  constructor(private qcs: FormControlService) { }
 
   ngOnInit() {
     this.form = this.qcs.toFormGroup(this.questions);
@@ -26,7 +28,23 @@ export class DynamicFormQuestionComponent implements OnInit, OnChanges {
   onSubmit() {
     this.payLoad = JSON.stringify(this.form.getRawValue());
   }
-  ngOnChanges($event) {
+  ngOnChanges(changes) {
     console.log('DynamicFormQuestionComponent-ngOnChanges', this.currentControl);
+    if (changes.props && changes.props.currentValue !== changes.props.previousValue) {
+      console.log('props', this.props);
+      console.log('DynamicFormQuestionComponent-ngOnChanges', this.currentControl);
+
+      const keys = Object.keys(this.currentControl);
+      const control = this.questions.find(q => q.key === this.currentControl.key);
+
+      console.log('keys', keys);
+      console.log('control', control);
+
+      keys.forEach(k => {
+        if (this.props[k]) {
+          control[k] = this.props[k];
+        }
+      });
+    }
   }
 }

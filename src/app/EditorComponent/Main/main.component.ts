@@ -10,6 +10,7 @@ export class EditorMainComponent implements OnInit, OnChanges {
 
   @Input() questions: FormBase<string>[] = [];
   @Input() currentControl;
+  @Input() props;
   
   constructor() {
 
