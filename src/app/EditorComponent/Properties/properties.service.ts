@@ -71,11 +71,11 @@ export class PropertiesFormService {
         cssClass: 'col-md-12',
       },
       {
-        controlType: 'textarea',
+        controlType: 'control-option',
         key: 'options',
         label: 'Options',
-        type: 'textarea',
-        order: 6,
+        type: '',
+        order: 7,
         cssClass: 'col-md-12',
       },
     ];

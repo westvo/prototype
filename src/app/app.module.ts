@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DynamicFormQuestionComponent } from './QuestionForm/dynamic-form-question.component';
 import { DynamicFormComponent } from './FormModule/dynamic-form.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { QuestionFormService } from './QuestionForm/question-form.service';
 import { FormCheckboxGroupComponent } from './FormModule/form-checkbox-group.component';
 import { FormLoginComponent } from './LoginForm/login-form.component';
@@ -18,6 +18,7 @@ import { FormControlService } from './FormModule/form-control.service';
 import { EditorControlsComponent } from './EditorComponent/Controls/control.component';
 import { ControlFormService } from './EditorComponent/Controls/control.service';
 import { EditorMainComponent } from './EditorComponent/Main/main.component';
+import { FormOptionPropertiesComponent } from './FormModule/OptionComponent/options.component';
 
 
 @NgModule({
@@ -31,8 +32,10 @@ import { EditorMainComponent } from './EditorComponent/Main/main.component';
     PropertiesComponent,
     EditorControlsComponent,
     EditorMainComponent,
+    FormOptionPropertiesComponent,
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,

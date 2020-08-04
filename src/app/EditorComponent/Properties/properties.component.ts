@@ -27,7 +27,7 @@ export class PropertiesComponent implements OnInit, OnChanges {
 
   ngOnChanges() {
     if (this.currentControl) {
-      console.log('ngOnChanges');
+      console.log('ngOnChanges', this.currentControl);
       this.properties.forEach(prop => {
         const control = this.form.controls[prop.key];
         control.setValue(this.currentControl[prop.key]);

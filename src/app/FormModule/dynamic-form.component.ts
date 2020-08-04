@@ -12,13 +12,14 @@ export class DynamicFormComponent implements OnChanges {
   @Input() form: FormGroup;
   @Input() prefixId = '';
   @Input() currentControl;
-  get isValid() { return this.form.controls[this.question.key].valid; }
+  get isValid() { return this.form.controls[this.question.key] && this.form.controls[this.question.key].valid; }
 
   setValue($event) {
     console.log($event);
   }
 
   ngOnChanges($event) {
+    console.log('question', this.question);
     console.log('DynamicFormComponent-ngOnChanges', this.currentControl);
   }
 }

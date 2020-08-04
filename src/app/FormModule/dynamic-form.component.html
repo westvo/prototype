@@ -1,32 +1,34 @@
 <div [formGroup]="form">
- 
+
   <div [ngSwitch]="question.controlType">
 
-    <div *ngSwitchCase="'textbox'" [ngStyle]="{'border': currentControl?.key === question?.key ? '2px solid green' : '',  'padding': currentControl?.key === question?.key ? '10px' : ''}" 
-    >
+    <div *ngSwitchCase="'textbox'"
+      [ngStyle]="{'border': currentControl?.key === question?.key ? '2px solid green' : '',  'padding': currentControl?.key === question?.key ? '10px' : ''}">
       <label [attr.for]="question.key">{{question.label}}</label>
 
       <input [formControlName]="question.key" [id]="prefixId + question.key" [type]="question.type"
         class="form-control">
     </div>
     <!--  -->
-    <div *ngSwitchCase="'textarea'"  [ngStyle]="{'border': currentControl?.key === question?.key ? '2px solid green' : '',  'padding': currentControl?.key === question?.key ? '10px' : '' }">
+    <div *ngSwitchCase="'textarea'"
+      [ngStyle]="{'border': currentControl?.key === question?.key ? '2px solid green' : '',  'padding': currentControl?.key === question?.key ? '10px' : '' }">
       <label [attr.for]="question.key">{{question.label}}</label>
 
-      <textarea  [formControlName]="question.key" [id]="prefixId + question.key" rows="4"
+      <textarea [formControlName]="question.key" [id]="prefixId + question.key" rows="4"
         class="form-control"></textarea>
     </div>
     <!--  -->
-    <div *ngSwitchCase="'dropdown'" [ngStyle]="{'border': currentControl?.key === question?.key ? '2px solid green' : '',  'padding': currentControl?.key === question?.key ? '10px' : '' }">
+    <div *ngSwitchCase="'dropdown'"
+      [ngStyle]="{'border': currentControl?.key === question?.key ? '2px solid green' : '',  'padding': currentControl?.key === question?.key ? '10px' : '' }">
       <label [attr.for]="question.key">{{question.label}}</label>
 
-      <select [id]="prefixId + question.key"  [formControlName]="question.key"
-        class="form-control">
+      <select [id]="prefixId + question.key" [formControlName]="question.key" class="form-control">
         <option *ngFor="let opt of question.options" [value]="opt.key">{{opt.value}}</option>
       </select>
     </div>
     <!--  -->
-    <div *ngSwitchCase="'checkbox-group'" [id]=" prefixId + question.key" [ngStyle]="{'border': currentControl?.key === question?.key ? '2px solid green' : '',  'padding': currentControl?.key === question?.key ? '10px' : '' }">
+    <div *ngSwitchCase="'checkbox-group'" [id]=" prefixId + question.key"
+      [ngStyle]="{'border': currentControl?.key === question?.key ? '2px solid green' : '',  'padding': currentControl?.key === question?.key ? '10px' : '' }">
       <label [attr.for]="question.key">{{question.label}}</label>
 
       <div *ngIf="question && form">
@@ -36,13 +38,21 @@
       </div>
     </div>
     <!--  -->
-    <div *ngSwitchCase="'radio-button'" [ngStyle]="{'border': currentControl?.key === question?.key ? '2px solid green' : '',  'padding': currentControl?.key === question?.key ? '10px' : '' }">
+    <div *ngSwitchCase="'radio-button'"
+      [ngStyle]="{'border': currentControl?.key === question?.key ? '2px solid green' : '',  'padding': currentControl?.key === question?.key ? '10px' : '' }">
       <label [attr.for]="question.key">{{question.label}}</label>
 
       <app-form-radio-button-component [options]="question.options" [control]='form.controls[question.key]'
         [prefixId]="prefixId">
       </app-form-radio-button-component>
     </div>
+    <!--  -->
+    <div *ngSwitchCase="'control-option'" >
+      <label [attr.for]="question.key">{{question.label}}</label>
+
+      <app-form-option-component [options]="question.value" [control]='form.controls[question.key]' [prefixId]="prefixId"></app-form-option-component>
+    </div>
+
 
     <div class="errorMessage" *ngIf="!isValid">{{question.label}} is required</div>
   </div>

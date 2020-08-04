@@ -41,6 +41,7 @@ export class DynamicFormQuestionComponent implements OnInit, OnChanges {
       console.log('control', control);
 
       keys.forEach(k => {
+        console.log('this.props[k]', this.props[k]);
         if (this.props[k]) {
           control[k] = this.props[k];
         }

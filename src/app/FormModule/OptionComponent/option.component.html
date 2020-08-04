@@ -1,0 +1,30 @@
+<div class="border">
+  <div *ngIf="options"> &#91;
+    <div class="d-flex" *ngFor="let opt of options; let i = index">
+      <div class="w-40   d-flex">
+        &#123;<input class="form-control " type="text" [id]="prefixId-i" [value]="opt.key"
+          (change)="setOptions('key', $event,opt, i )">
+      </div>
+      <div class="w-60  d-flex"> &#58;
+        <input class="form-control" type="text" [id]="prefixId-i-value" [value]="opt.value"
+          (change)="setOptions('value', $event,opt, i )">
+      </div> &#125;&#184; <button class="btn btn-outline-danger btn-sm p-0" (click)="removeOption(i)">Delete</button>
+    </div>&#93;
+  </div>
+  <div>
+    <div class=" d-flex" *ngIf="options">
+      <div class="w-40 d-flex">
+        &#123;<input class="form-control " type="text" [id]="prefixId-i" [value]="newOption.key"
+          (change)="setValueNewOptions('key', $event )" 
+          placeholder="Input to add option key" title="Input to add option key">
+      </div>
+      <div class="w-60 d-flex"> &#58;
+        <input class="form-control" type="text" [id]="prefixId-i-value" [value]="newOption.value"
+          (change)="setValueNewOptions('value', $event )" 
+          placeholder="Input to add option value" title="Input to add option value">
+      </div> &#125;&#184;
+
+    </div>
+    <button *ngIf="options" class="btn btn-outline-secondary" (click)="addNewOption()">Add option</button>
+  </div>
+</div>
