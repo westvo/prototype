@@ -36,6 +36,15 @@ export class QuestionFormService {
       },
 
       {
+        controlType: 'checkbox',
+        key: 'checkbox',
+        label: 'Checkbox',
+        value: 'true',
+        required: true,
+        order: 6,
+        cssClass: 'col-md-6',
+      },
+      {
         controlType: 'textbox',
         key: 'emailAddress',
         label: 'Email',

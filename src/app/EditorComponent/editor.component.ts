@@ -50,6 +50,7 @@ export class EditorComponent implements OnDestroy {
     console.log('currentControl', this.currentControl);
     console.log('props', this.properties$);
   }
+
   ngOnDestroy() {
     this.unsubscribe$.unsubscribe();
   }

@@ -15,11 +15,11 @@
         </div>
       </nav>
     </div>
-    <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
+    <main class="col-12 col-md-9 col-xl-6 py-md-3 pl-md-5 bd-content" role="main">
       <app-editor-main [questions]="currentFormControls | async" [currentControl]="currentControl" [props]="props"></app-editor-main>
     </main>
 
-    <div class="d-none d-xl-block col-xl-2 bd-toc">
+    <div class="d-none d-xl-block col-xl-4 bd-toc">
       <div class="position-fixed ">
         <app-properties [properties]="properties$ | async"  [currentControl]="currentControl" (change)="onPropertiesChange($event)"></app-properties>
       </div>

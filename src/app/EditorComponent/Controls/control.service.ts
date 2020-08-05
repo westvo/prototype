@@ -34,7 +34,15 @@ export class ControlFormService {
         order: 1,
         cssClass: 'col-md-6',
       },
-
+      {
+        controlType: 'checkbox',
+        key: 'checkbox',
+        label: 'Checkbox',
+        value: 'true',
+        required: true,
+        order: 6,
+        cssClass: 'col-md-6',
+      },
       {
         controlType: 'textbox',
         key: 'emailAddress',

@@ -31,6 +31,7 @@ export class PropertiesFormService {
         type: 'string',
         order: 2,
         cssClass: 'col-md-12',
+        disabled: true,
       },
       {
         controlType: 'textbox',
@@ -55,6 +56,14 @@ export class PropertiesFormService {
         cssClass: 'col-md-12',
       },
       {
+        controlType: 'textbox',
+        key: 'cssClass',
+        label: 'CSS Class',
+        type: 'string',
+        order: 5,
+        cssClass: 'col-md-12',
+      },
+      {
         controlType: 'textarea',
         key: 'description',
         label: 'Description',
@@ -67,7 +76,7 @@ export class PropertiesFormService {
         key: 'order',
         label: 'Order',
         type: 'number',
-        order: 6,
+        order: 7,
         cssClass: 'col-md-12',
       },
       {
