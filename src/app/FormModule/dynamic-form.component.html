@@ -6,8 +6,9 @@
       [ngStyle]="{'background-color': currentControl?.key === question?.key ? '#007bff40' : '' }">
       <label [attr.for]="question.key">{{question.label}}</label>
 
-      <input [formControlName]="question.key" [id]="prefixId + question.key" [type]="question.type"
-        class="form-control" [attr.disabled]='question.disabled'>
+      <input [formControlName]="question.key" [id]="prefixId + question.key" [type]="question.type" class="form-control"
+        [attr.disabled]='question.disabled'>
+      <div class="errorMessage" *ngIf="!isValid">{{question.label}} is required</div>
     </div>
     <!--  -->
     <div *ngSwitchCase="'textarea'" style="padding: 5px;"
@@ -16,6 +17,7 @@
 
       <textarea [formControlName]="question.key" [id]="prefixId + question.key" rows="4"
         class="form-control"></textarea>
+      <div class="errorMessage" *ngIf="!isValid">{{question.label}} is required</div>
     </div>
     <!--  -->
     <div *ngSwitchCase="'dropdown'" style="padding: 5px;"
@@ -25,6 +27,7 @@
       <select [id]="prefixId + question.key" [formControlName]="question.key" class="form-control">
         <option *ngFor="let opt of question.options" [value]="opt.key">{{opt.value}}</option>
       </select>
+      <div class="errorMessage" *ngIf="!isValid">{{question.label}} is required</div>
     </div>
     <!--  -->
     <div *ngSwitchCase="'checkbox-group'" [id]=" prefixId + question.key" style="padding: 5px;"
@@ -33,8 +36,9 @@
 
       <div *ngIf="question && form">
         <app-form-checkbox-component [options]="question.options" [control]='form.controls[question.key]'
-          [prefixId]="prefixId"  >
+          [prefixId]="prefixId">
         </app-form-checkbox-component>
+        <div class="errorMessage" *ngIf="!isValid">{{question.label}} is required</div>
       </div>
     </div>
     <!--  -->
@@ -43,8 +47,9 @@
       <label [attr.for]="question.key">{{question.label}}</label>
 
       <app-form-radio-button-component [options]="question.options" [control]='form.controls[question.key]'
-        [prefixId]="prefixId"  >
+        [prefixId]="prefixId">
       </app-form-radio-button-component>
+      <div class="errorMessage" *ngIf="!isValid">{{question.label}} is required</div>
     </div>
     <!--  -->
     <div *ngSwitchCase="'control-option'" style="padding: 5px;">
@@ -52,16 +57,18 @@
 
       <app-form-option-component [options]="question.value" [control]='form.controls[question.key]'
         [prefixId]="prefixId"></app-form-option-component>
+      <div class="errorMessage" *ngIf="!isValid">{{question.label}} is required</div>
     </div>
     <!--  -->
     <div *ngSwitchCase="'checkbox'" style="padding: 5px;">
       <label>
         <input type="checkbox" [value]="question.key" [id]="prefixId + question.key" [formControlName]="question.key" />
-       {{question.label}} 
+        {{question.label}}
       </label>
+      <div class="errorMessage" *ngIf="!isValid">{{question.label}} is required</div>
     </div>
     <!--  -->
 
-    <div class="errorMessage" *ngIf="!isValid">{{question.label}} is required</div>
+    <!-- -->
   </div>
 </div>

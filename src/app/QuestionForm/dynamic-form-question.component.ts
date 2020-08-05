@@ -30,6 +30,9 @@ export class DynamicFormQuestionComponent implements OnInit, OnChanges {
   }
   ngOnChanges(changes) {
     console.log('DynamicFormQuestionComponent-ngOnChanges', this.currentControl);
+    if (changes.currentControl) {
+      this.form = this.qcs.toFormGroup(this.questions);
+    }
     if (changes.props && changes.props.currentValue !== changes.props.previousValue) {
       console.log('props', this.props);
       console.log('DynamicFormQuestionComponent-ngOnChanges', this.currentControl);

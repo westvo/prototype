@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {EditorComponent} from './EditorComponent/editor.component';
 const routes: Routes = [
-  { path: 'first-component', component: EditorComponent },
+  { path: '', component: EditorComponent },
   { path: 'second-component', component: EditorComponent },
 ];
 

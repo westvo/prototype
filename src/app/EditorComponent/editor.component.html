@@ -2,26 +2,28 @@
   <div class="row flex-xl-nowrap">
     <div class="col-12 col-md-3 col-xl-2 bd-sidebar">
       <div class="bd-search d-flex align-items-center position-fixed">
-          <input type="search"
-            class="form-control ds-input" id="search-input" placeholder="Search..." aria-label="Search for..."
-            autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list" aria-expanded="false"
-            aria-owns="algolia-autocomplete-listbox-0" dir="auto" style="position: relative; vertical-align: top;">
+        <input type="search" class="form-control ds-input" id="search-input" placeholder="Search..."
+          aria-label="Search for..." autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list"
+          aria-expanded="false" aria-owns="algolia-autocomplete-listbox-0" dir="auto"
+          style="position: relative; vertical-align: top;">
       </div>
 
       <nav class="collapse bd-links" id="bd-docs-nav">
-        <div class="bd-toc-item">
-          <app-editor-controls [currentFormControls]="currentFormControls"
-          (changeControl)="selectControl($event)"></app-editor-controls>
+        <div class="bd-toc-item" [ngStyle]="{'z-index': isShowModal ? '99' :'', 'overflow':isShowModal?'hidden':''}">
+          <app-editor-controls [currentFormControls]="currentFormControls" (changeControl)="selectControl($event)"
+            (openModal)="showModal($event)" (addControl)="addControl($event)"></app-editor-controls>
         </div>
       </nav>
     </div>
     <main class="col-12 col-md-9 col-xl-6 py-md-3 pl-md-5 bd-content" role="main">
-      <app-editor-main [questions]="currentFormControls | async" [currentControl]="currentControl" [props]="props"></app-editor-main>
+      <app-editor-main [questions]="currentFormControls | async" [currentControl]="currentControl" [props]="props">
+      </app-editor-main>
     </main>
 
     <div class="d-none d-xl-block col-xl-4 bd-toc">
       <div class="position-fixed ">
-        <app-properties [properties]="properties$ | async"  [currentControl]="currentControl" (change)="onPropertiesChange($event)"></app-properties>
+        <app-properties [properties]="properties$ | async" [currentControl]="currentControl"
+          (change)="onPropertiesChange($event)"></app-properties>
       </div>
     </div>
   </div>

@@ -17,6 +17,25 @@
       overflow-y: scroll;
       position: fixed;
       width: calc(15% + 15px)
+
+          
+    .bd-toc-item::-webkit-scrollbar
+      width: 10px;
+
+    /* Track */
+    .bd-toc-item::-webkit-scrollbar-track 
+      background: #f1f1f1; 
+
+    
+    /* Handle */
+    .bd-toc-item::-webkit-scrollbar-thumb 
+      background: #888; 
+
+
+    /* Handle on hover */
+    .bd-toc-item::-webkit-scrollbar-thumb:hover 
+      background: #555; 
+
 main
   overflow-y: scroll;
   height: 100vh;

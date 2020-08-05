@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, EventEmitter, Output } from '@angular/core';
 import { PropertiesFormService } from './Properties/properties.service';
 import { Observable, of, Subject } from 'rxjs';
 import { FormBase } from '../FormModule/form-base';
@@ -16,6 +16,8 @@ export class EditorComponent implements OnDestroy {
   currentFormControls;
   currentControl;
   props;
+  isShowModal: false;
+
   constructor(public propService: PropertiesFormService, controlService: ControlFormService) {
     this.properties$ = this.propService.getProperties();
     this.unsubscribe$ = this.properties$.subscribe(controls =>
@@ -49,6 +51,17 @@ export class EditorComponent implements OnDestroy {
       ));
     console.log('currentControl', this.currentControl);
     console.log('props', this.properties$);
+  }
+
+  showModal(isShowModal) {
+    this.isShowModal = isShowModal;
+  }
+
+  addControl(control) {
+    this.currentFormControls.subscribe(v => {
+      this.currentControl = control;
+      v.push(control);
+    });
   }
 
   ngOnDestroy() {

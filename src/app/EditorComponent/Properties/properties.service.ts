@@ -31,7 +31,6 @@ export class PropertiesFormService {
         type: 'string',
         order: 2,
         cssClass: 'col-md-12',
-        disabled: true,
       },
       {
         controlType: 'textbox',
