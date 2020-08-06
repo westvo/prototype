@@ -1,6 +1,6 @@
-<div class="container-fluid">
+<div>
   <div class="row flex-xl-nowrap">
-    <div class="col-12 col-md-3 col-xl-2 bd-sidebar">
+    <div class="col-12 col-md-2 col-xl-2 bd-sidebar has-scrollbar">
       <div class="bd-search d-flex align-items-center position-fixed">
         <input type="search" class="form-control ds-input" id="search-input" placeholder="Search..."
           aria-label="Search for..." autocomplete="off" spellcheck="false" role="combobox" aria-autocomplete="list"
@@ -8,19 +8,19 @@
           style="position: relative; vertical-align: top;">
       </div>
 
-      <nav class="collapse bd-links" id="bd-docs-nav">
+      <nav class="collapse bd-links" id="bd-docs-nav nano has-scrollbar">
         <div class="bd-toc-item" [ngStyle]="{'z-index': isShowModal ? '99' :'', 'overflow':isShowModal?'hidden':''}">
           <app-editor-controls [currentFormControls]="currentFormControls" (changeControl)="selectControl($event)"
             (openModal)="showModal($event)" (addControl)="addControl($event)"></app-editor-controls>
         </div>
       </nav>
     </div>
-    <main class="col-12 col-md-9 col-xl-6 py-md-3 pl-md-5 bd-content" role="main">
+    <main class="col-12 col-md-8 col-xl-6 py-md-3 pl-md-5 bd-content has-scrollbar" role="main">
       <app-editor-main [questions]="currentFormControls | async" [currentControl]="currentControl" [props]="props">
       </app-editor-main>
     </main>
 
-    <div class="d-none d-xl-block col-xl-4 bd-toc">
+    <div class="d-none d-xl-block col-xl-4 bd-toc has-scrollbar">
       <div class="position-fixed ">
         <app-properties [properties]="properties$ | async" [currentControl]="currentControl"
           (change)="onPropertiesChange($event)"></app-properties>

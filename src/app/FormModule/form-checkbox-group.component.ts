@@ -6,10 +6,10 @@ import { FormControl } from '@angular/forms';
   selector: 'app-form-checkbox-component',
   template: `
   <div *ngFor="let data of options; let i=index">
-    <label>
-      <input type="checkbox" [value]="data.key" (change)="onCheckboxChange($event)" [id]="prefixId + data.key" />
-      {{data.value}}
-    </label>
+  <div class="checkbox"  (click)="onCheckboxChange(data)" >
+      <input class="magic-checkbox" type="checkbox"
+     [checked]="data.checked" [value]="data.key"  [id]="prefixId + data.key"  />
+      <label> {{data.value}}  </label> </div>
   </div>
 `,
   providers: []
@@ -25,14 +25,16 @@ export class FormCheckboxGroupComponent implements OnInit {
 
   }
 
-  onCheckboxChange(e) {
+  onCheckboxChange(data) {
     let array = this.control.value || [];
-    if (e.target.checked) {
-      array.push(e.target.value);
+    data.checked = !data.checked;
+    if (data.checked) {
+      array.push(data.key);
       this.control.setValue(array);
     } else {
-      array = array.filter((item) => item !== e.target.value);
+      array = array.filter((item) => item !== data.key);
       this.control.setValue(array);
+      // this.options.map(v => {v.checked = array[v.value]; return v; });
     }
   }
 }

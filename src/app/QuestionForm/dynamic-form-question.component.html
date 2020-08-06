@@ -1,12 +1,16 @@
-<div class="container">
-  <div class="col align-self-center">
-    <h3>Question form</h3>
-    <form [formGroup]="form" class="row">
-      <div *ngFor="let question of questions" [ngClass]="question.cssClass">
-        <app-dynamic-form [question]="question" [form]="form" [currentControl]="currentControl"></app-dynamic-form>
-      </div>
-    </form>
-    <div class="row">
+<div class="container panel">
+  <div class="col align-self-center panel">
+    <div class="panel-heading">
+      <h3 class="panel-title">Question form</h3>
+    </div>
+    <div class=" panel-body">
+      <form [formGroup]="form" class="row ">
+          <div *ngFor="let question of questions" [ngClass]="question.cssClass">
+            <app-dynamic-form [question]="question" [form]="form" [currentControl]="currentControl"></app-dynamic-form>
+          </div>
+      </form>
+    </div>
+    <div class="row panel-footer text-right">
       <button class="btn btn-primary" (click)="onSubmit()" [disabled]="!form.valid">Save</button>
     </div>
     <div *ngIf="payLoad">

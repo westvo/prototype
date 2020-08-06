@@ -60,11 +60,8 @@
       <div class="errorMessage" *ngIf="!isValid">{{question.label}} is required</div>
     </div>
     <!--  -->
-    <div *ngSwitchCase="'checkbox'" style="padding: 5px;">
-      <label>
-        <input type="checkbox" [value]="question.key" [id]="prefixId + question.key" [formControlName]="question.key" />
-        {{question.label}}
-      </label>
+    <div *ngSwitchCase="'checkbox'" style="padding: 5px;" >
+      <app-form-component [control]='form.controls[question.key]' [question]="question" [prefixId]="prefixId"></app-form-component>
       <div class="errorMessage" *ngIf="!isValid">{{question.label}} is required</div>
     </div>
     <!--  -->

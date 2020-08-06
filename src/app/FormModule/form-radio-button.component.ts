@@ -5,8 +5,8 @@ import { FormControl } from '@angular/forms';
 @Component({
   selector: 'app-form-radio-button-component',
   template: `
-  <div class="form-check" *ngFor="let opt of options">
-  <input class="form-check-input" type="radio" [name]="opt.key" [id]="prefixId + opt.key"
+  <div class="form-check radio" *ngFor="let opt of options">
+  <input class="form-check-input magic-radio" type="radio" [name]="opt.key" [id]="prefixId + opt.key"
   (change)="onRadioButtonChange($event)" [checked]="opt.key===control.value">
   <label class="form-check-label" [for]="opt.key">
     {{opt.value}}

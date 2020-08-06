@@ -19,6 +19,7 @@ import { EditorControlsComponent } from './EditorComponent/Controls/control.comp
 import { ControlFormService } from './EditorComponent/Controls/control.service';
 import { EditorMainComponent } from './EditorComponent/Main/main.component';
 import { FormOptionPropertiesComponent } from './FormModule/OptionComponent/options.component';
+import { FormCheckboxComponent } from './FormModule/form-checkbox.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { FormOptionPropertiesComponent } from './FormModule/OptionComponent/opti
     EditorControlsComponent,
     EditorMainComponent,
     FormOptionPropertiesComponent,
+    FormCheckboxComponent,
   ],
   imports: [
     FormsModule,
