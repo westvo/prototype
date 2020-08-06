@@ -33,7 +33,7 @@ export class DynamicFormQuestionComponent implements OnInit, OnChanges {
     if (changes.currentControl) {
       this.form = this.qcs.toFormGroup(this.questions);
     }
-    if (changes.props && changes.props.currentValue !== changes.props.previousValue) {
+    if (changes.props && changes.props.currentValue !== changes.props.previousValue && changes.props.currentValue.controlType ) {
       console.log('props', this.props);
       console.log('DynamicFormQuestionComponent-ngOnChanges', this.currentControl);
 
@@ -49,6 +49,7 @@ export class DynamicFormQuestionComponent implements OnInit, OnChanges {
           control[k] = this.props[k];
         }
       });
+
     }
   }
 }

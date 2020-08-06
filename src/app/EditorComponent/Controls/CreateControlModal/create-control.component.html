@@ -1,0 +1,31 @@
+
+<div class="bootbox modal fade  " tabindex="-1" role="dialog" style="  padding-right: 17px;"
+[ngStyle]="{'display': isShowModal ? 'block' :''}" [ngClass]="isShowModal ? 'in':''">
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header"><button type="button" class="close" data-dismiss="modal" (click)="toggleModal()"><i
+          class="pci-cross pci-circle"></i></button>
+      <h4 class="modal-title">This is a form in a modal.</h4>
+    </div>
+    <div class="modal-body">
+      <div class="bootbox-body">
+        <div class="row">
+          <div class="col-md-12">
+            <form [formGroup]="pForm" class="row">
+              <div *ngFor="let question of pControls" [ngClass]="question.cssClass">
+                <app-dynamic-form [question]="question" [form]="pForm"></app-dynamic-form>
+              </div>
+            </form>
+          </div>
+        </div>
+        <script></script>
+      </div>
+    </div>
+    <div class="modal-footer"><button data-bb-handler="success" type="button" class="btn btn-purple"
+        (click)="createControl()">Save</button>
+    </div>
+  </div>
+</div>
+</div>
+<div *ngIf="isShowModal" class="modal-backdrop fade in"></div>
+<!-- Modal -->

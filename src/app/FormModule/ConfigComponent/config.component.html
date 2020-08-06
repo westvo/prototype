@@ -1,0 +1,14 @@
+<div class="configs">
+  <h3>Configs</h3>
+  <form [formGroup]="cForm" class="row" *ngIf='cForm'>
+    <div *ngFor="let question of cControls" [ngClass]="question.cssClass">
+      <app-dynamic-form [question]="question" [form]="cForm"  [prefixId]="prefixId"></app-dynamic-form>
+    </div>
+  </form>
+  <div class="form-row">
+    <button class="btn btn-info" (click)="onSubmit()"  >Load data</button>
+  </div>
+  <div *ngIf="payLoad">
+    <strong>Saved the following values</strong><br>{{payLoad}}
+  </div>
+</div>

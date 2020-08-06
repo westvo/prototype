@@ -1,6 +1,9 @@
 <div class="controls">
   <div class="form">
-    <button class="btn btn-info" (click)="toggleModal()">Add Control</button>
+    <div class="text-center"> 
+      <button class="btn btn-info" (click)="toggleModal()">Add Control</button>
+
+    </div>
     <h2>Form</h2>
     <ul *ngIf="controls" class="list-group  ">
       <li *ngFor="let control of controls" class="list-group-item list-item-sm cursor-pointer"
@@ -15,34 +18,5 @@
     </ul>
   </div>
 </div>
-
-<div class="bootbox modal fade  " tabindex="-1" role="dialog" style="  padding-right: 17px;"
-  [ngStyle]="{'display': isShowModal ? 'block' :''}" [ngClass]="isShowModal ? 'in':''">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header"><button type="button" class="close" data-dismiss="modal" (click)="toggleModal()"><i
-            class="pci-cross pci-circle"></i></button>
-        <h4 class="modal-title">This is a form in a modal.</h4>
-      </div>
-      <div class="modal-body">
-        <div class="bootbox-body">
-          <div class="row">
-            <div class="col-md-12">
-              <form [formGroup]="pform" class="row">
-                <div *ngFor="let question of pControls" [ngClass]="question.cssClass">
-                  <app-dynamic-form [question]="question" [form]="pform"></app-dynamic-form>
-                </div>
-              </form>
-            </div>
-          </div>
-          <script></script>
-        </div>
-      </div>
-      <div class="modal-footer"><button data-bb-handler="success" type="button" class="btn btn-purple"
-          (click)="createControl()">Save</button>
-      </div>
-    </div>
-  </div>
-</div>
-<div *ngIf="isShowModal" class="modal-backdrop fade in"></div>
-<!-- Modal -->
+<app-create-control-component (create)="createControl($event)" [isShowModal]="isShowModal"
+  (closeModel)="toggleModal()"></app-create-control-component>

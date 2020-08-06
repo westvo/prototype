@@ -65,7 +65,11 @@
       <div class="errorMessage" *ngIf="!isValid">{{question.label}} is required</div>
     </div>
     <!--  -->
-
+     
+      <div *ngSwitchCase="'option-config'">
+        <app-config-form-component [configValue]="question" [prefixId]="prefixId"></app-config-form-component>
+      </div>
+     
     <!-- -->
   </div>
 </div>

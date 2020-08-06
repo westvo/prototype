@@ -60,6 +60,7 @@ export class PropertiesFormService {
         label: 'CSS Class',
         type: 'string',
         order: 5,
+        value: 'col-md-6',
         cssClass: 'col-md-12',
       },
       {
@@ -86,6 +87,21 @@ export class PropertiesFormService {
         order: 7,
         cssClass: 'col-md-12',
       },
+      {
+        controlType: 'option-config',
+        key: 'config',
+        label: 'Config',
+        order: 8,
+        value: {
+          ap_url: 'https://mydictionaries.herokuapp.com/api/categories',
+          method: 'get',
+          array_expression: '',
+          key: '_id',
+          value: 'name'
+        },
+        cssClass: 'col-md-12',
+
+      }
     ];
 
     return of(props.sort((a, b) => a.order - b.order).map(f => f as FormBase<any>));

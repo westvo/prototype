@@ -20,6 +20,9 @@ import { ControlFormService } from './EditorComponent/Controls/control.service';
 import { EditorMainComponent } from './EditorComponent/Main/main.component';
 import { FormOptionPropertiesComponent } from './FormModule/OptionComponent/options.component';
 import { FormCheckboxComponent } from './FormModule/form-checkbox.component';
+import { CreateControlComponent } from './EditorComponent/Controls/CreateControlModal/create-control.Component';
+import { ConfigFormComponent } from './FormModule/ConfigComponent/config.component';
+import { ConfigOptionControlService } from './FormModule/ConfigComponent/config.service';
 
 
 @NgModule({
@@ -35,6 +38,8 @@ import { FormCheckboxComponent } from './FormModule/form-checkbox.component';
     EditorMainComponent,
     FormOptionPropertiesComponent,
     FormCheckboxComponent,
+    CreateControlComponent,
+    ConfigFormComponent,
   ],
   imports: [
     FormsModule,
@@ -42,7 +47,8 @@ import { FormCheckboxComponent } from './FormModule/form-checkbox.component';
     AppRoutingModule,
     ReactiveFormsModule,
   ],
-  providers: [QuestionFormService, LoginFormService, PropertiesFormService, FormControlService, ControlFormService],
+  providers: [QuestionFormService, LoginFormService, PropertiesFormService,
+    FormControlService, ControlFormService, ConfigOptionControlService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
