@@ -7,7 +7,9 @@ import { } from 'protractor';
 
 @Component({
   selector: 'app-create-control-component',
-  templateUrl: 'create-control.component.html'
+  templateUrl: 'create-control.component.html',
+  styleUrls: ['./create-control.component.sass']
+
 })
 
 export class CreateControlComponent implements OnInit {

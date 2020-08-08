@@ -48,7 +48,7 @@ export class ConfigOptionControlService {
         type: 'string',
         order: 1,
         cssClass: 'col-md-12',
-        value: 'https://mydictionaries.herokuapp.com/api/categories',
+        // value: 'https://mydictionaries.herokuapp.com/api/categories',
       }, {
         controlType: 'dropdown',
         key: 'method',
@@ -59,7 +59,7 @@ export class ConfigOptionControlService {
         ],
         order: 2,
         cssClass: 'col-md-12',
-        value: 'get',
+        // value: 'get',
       },
       {
         controlType: 'textbox',
@@ -68,7 +68,7 @@ export class ConfigOptionControlService {
         type: 'string',
         order: 3,
         cssClass: 'col-md-12',
-        value: '_id',
+        // value: '_id',
       },
       {
         controlType: 'textbox',
@@ -77,7 +77,7 @@ export class ConfigOptionControlService {
         type: 'string',
         order: 3,
         cssClass: 'col-md-12',
-        value: 'name',
+        // value: 'name',
       },
     ];
 

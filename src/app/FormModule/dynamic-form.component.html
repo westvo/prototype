@@ -36,8 +36,8 @@
       [ngStyle]="{'background-color': currentControl?.key === question?.key ? '#007bff40' : '' }">
       <label [attr.for]="question.key">{{question.label}}</label>
 
-      <div *ngIf="question && form">
-        <app-form-checkbox-component [options]="question.options" [control]='form.controls[question.key]'
+      <div *ngIf="question && form" >
+        <app-form-checkbox-component [question]="question" [control]='form.controls[question.key]'
           [prefixId]="prefixId">
         </app-form-checkbox-component>
         <div class="errorMessage" *ngIf="!isValid">{{question.label}} is required</div>
@@ -62,7 +62,8 @@
       <div class="errorMessage" *ngIf="!isValid">{{question.label}} is required</div>
     </div>
     <!--  -->
-    <div *ngSwitchCase="'checkbox'" style="padding: 5px;" >
+    <div *ngSwitchCase="'checkbox'" style="padding: 5px;" style="padding: 5px;"
+    [ngStyle]="{'background-color': currentControl?.key === question?.key ? '#007bff40' : '' }">
       <app-form-component [control]='form.controls[question.key]' [question]="question" [prefixId]="prefixId"></app-form-component>
       <div class="errorMessage" *ngIf="!isValid">{{question.label}} is required</div>
     </div>

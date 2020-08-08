@@ -1,0 +1,8 @@
+<div>
+  <div *ngFor="let data of question.options; let i=index">
+    <div class="checkbox" (click)="onCheckboxChange(data)">
+      <input class="magic-checkbox" type="checkbox" [checked]="data.checked" [value]="data.key"
+        [id]="prefixId + data.key" />
+      <label> {{data.value}} </label> </div>
+  </div>
+</div>

@@ -7,7 +7,7 @@ import { DynamicFormQuestionComponent } from './QuestionForm/dynamic-form-questi
 import { DynamicFormComponent } from './FormModule/dynamic-form.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { QuestionFormService } from './QuestionForm/question-form.service';
-import { FormCheckboxGroupComponent } from './FormModule/form-checkbox-group.component';
+import { FormCheckboxGroupComponent } from './FormModule/CheckboxGroupComponent/checkbox-group.component';
 import { FormLoginComponent } from './LoginForm/login-form.component';
 import { LoginFormService } from './LoginForm/login-form.service';
 import { FormRadioButtonComponent } from './FormModule/form-radio-button.component';
@@ -20,7 +20,7 @@ import { ControlFormService } from './EditorComponent/Controls/control.service';
 import { EditorMainComponent } from './EditorComponent/Main/main.component';
 import { FormOptionPropertiesComponent } from './FormModule/OptionComponent/options.component';
 import { FormCheckboxComponent } from './FormModule/form-checkbox.component';
-import { CreateControlComponent } from './EditorComponent/Controls/CreateControlModal/create-control.Component';
+import { CreateControlComponent } from './EditorComponent/Controls/CreateControlModal/create-control.component';
 import { ConfigFormComponent } from './FormModule/ConfigComponent/config.component';
 import { ConfigOptionControlService } from './FormModule/ConfigComponent/config.service';
 import { HttpClientModule } from '@angular/common/http';
