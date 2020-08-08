@@ -22,11 +22,13 @@
     <!--  -->
     <div *ngSwitchCase="'dropdown'" style="padding: 5px;"
       [ngStyle]="{'background-color': currentControl?.key === question?.key ? '#007bff40' : '' }">
-      <label [attr.for]="question.key">{{question.label}}</label>
+      <!-- <label [attr.for]="question.key">{{question.label}}</label>
 
       <select [id]="prefixId + question.key" [formControlName]="question.key" class="form-control">
         <option *ngFor="let opt of question.options" [value]="opt.key">{{opt.value}}</option>
-      </select>
+      </select> -->
+      <app-dropdown-form-component [question]="question" [control]='form.controls[question.key]'
+      [prefixId]="prefixId"></app-dropdown-form-component>
       <div class="errorMessage" *ngIf="!isValid">{{question.label}} is required</div>
     </div>
     <!--  -->
@@ -67,7 +69,7 @@
     <!--  -->
      
       <div *ngSwitchCase="'option-config'">
-        <app-config-form-component [configValue]="question" [prefixId]="prefixId"></app-config-form-component>
+        <app-config-form-component [control]='form.controls[question.key]' [configValue]="question" [prefixId]="prefixId"></app-config-form-component>
       </div>
      
     <!-- -->

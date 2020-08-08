@@ -23,6 +23,8 @@ export class QuestionFormService {
         ],
         order: 3,
         cssClass: 'col-md-6',
+        config: {api_url: 'https://mydictionaries.herokuapp.com/api/categories',
+        method: 'get', key: '_id', value: 'name'}
       },
 
       {

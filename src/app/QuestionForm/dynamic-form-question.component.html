@@ -13,8 +13,8 @@
     <div class="row panel-footer text-right">
       <button class="btn btn-primary" (click)="onSubmit()" [disabled]="!form.valid">Save</button>
     </div>
-    <div *ngIf="payLoad">
+    <h3 *ngIf="payLoad" style="overflow-wrap: break-word;">
       <strong>Saved the following values</strong><br>{{payLoad}}
-    </div>
+    </h3>
   </div>
 </div>

@@ -9,7 +9,7 @@
       <li *ngFor="let control of controls" class="list-group-item list-item-sm cursor-pointer"
         (click)="selectControl(control)">
         <a href="#">
-          <h4 class=" list-group-item-heading mb-1"> {{control.label}} </h4>
+          <h4 class=" list-group-item-heading mb-1" *ngIf="control"> {{control.label}} </h4>
           <p class="list-group-item-text mb-1">{{control.controlType}}</p>
         </a>
       </li>

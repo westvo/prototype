@@ -8,6 +8,7 @@ export class FormBase<T> {
   type: string;
   options: { key: string, value: string }[];
   cssClass: string;
+  config: object;
 
   constructor(options: {
     value?: T;
@@ -19,6 +20,7 @@ export class FormBase<T> {
     type?: string;
     cssClass?: string;
     options?: { key: string, value: string }[];
+    config?: object;
   } = {}) {
     this.value = options.value;
     this.key = options.key || '';
@@ -29,5 +31,6 @@ export class FormBase<T> {
     this.type = options.type || '';
     this.options = options.options || [];
     this.cssClass = options.cssClass || '';
+    this.config = options.config || {};
   }
 }

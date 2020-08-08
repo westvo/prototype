@@ -19,6 +19,7 @@ export class ConfigFormComponent implements OnInit {
   @Input() prefixId;
   cForm: FormGroup;
   payLoad = '';
+  @Input() control;
 
   @Output() change = new EventEmitter<any>();
 
@@ -47,8 +48,24 @@ export class ConfigFormComponent implements OnInit {
     //   });
     // }
   }
-  onSubmit() {
-   const payload = this.cForm.getRawValue();
-   console.log('payload', payload);
+  onChange() {
+    const payload = this.cForm.getRawValue();
+    console.log('payload', payload);
+    this.control.setValue(payload);
+
+    // this.configService.fetchConfig(payload.api_url, payload.method, payload.params).subscribe((data: any) => {
+    //   let options = data;
+    //   if (data && payload.expression) {
+    //     const expressions = payload.expression.split('.');
+    //     expressions.forEach((exp: string) => {
+    //       options = options[exp];
+    //     });
+    //   }
+    //   if (options && payload.key && payload.value) {
+    //     const results = options.map((obj: any) => {
+    //       return { key: obj[payload.key], value: obj[payload.value] };
+    //     });
+    //   }
+    // });
   }
 }

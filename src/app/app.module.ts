@@ -23,6 +23,8 @@ import { FormCheckboxComponent } from './FormModule/form-checkbox.component';
 import { CreateControlComponent } from './EditorComponent/Controls/CreateControlModal/create-control.Component';
 import { ConfigFormComponent } from './FormModule/ConfigComponent/config.component';
 import { ConfigOptionControlService } from './FormModule/ConfigComponent/config.service';
+import { HttpClientModule } from '@angular/common/http';
+import { DropdownComponent } from './FormModule/DropdownComponent/dropdown.component';
 
 
 @NgModule({
@@ -40,12 +42,14 @@ import { ConfigOptionControlService } from './FormModule/ConfigComponent/config.
     FormCheckboxComponent,
     CreateControlComponent,
     ConfigFormComponent,
+    DropdownComponent,
   ],
   imports: [
     FormsModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [QuestionFormService, LoginFormService, PropertiesFormService,
     FormControlService, ControlFormService, ConfigOptionControlService],

@@ -37,7 +37,7 @@ export class DynamicFormQuestionComponent implements OnInit, OnChanges {
       console.log('props', this.props);
       console.log('DynamicFormQuestionComponent-ngOnChanges', this.currentControl);
 
-      const keys = Object.keys(this.currentControl);
+      const keys = Object.keys(changes.props.currentValue);
       const control = this.questions.find(q => q.key === this.currentControl.key);
 
       console.log('keys', keys);
@@ -50,6 +50,7 @@ export class DynamicFormQuestionComponent implements OnInit, OnChanges {
         }
       });
 
+      this.form = this.qcs.toFormGroup(this.questions);
     }
   }
 }

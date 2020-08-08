@@ -92,13 +92,6 @@ export class PropertiesFormService {
         key: 'config',
         label: 'Config',
         order: 8,
-        value: {
-          ap_url: 'https://mydictionaries.herokuapp.com/api/categories',
-          method: 'get',
-          array_expression: '',
-          key: '_id',
-          value: 'name'
-        },
         cssClass: 'col-md-12',
 
       }
