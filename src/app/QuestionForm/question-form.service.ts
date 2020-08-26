@@ -91,6 +91,15 @@ export class QuestionFormService {
         cssClass: 'col-md-6',
       },
 
+      {
+        controlType: 'date-picker',
+        key: 'birth_day',
+        label: 'Birthday',
+        type: '',
+        order: 7,
+        cssClass: 'col-md-6',
+        format: 'DD/MM/YYYY'
+      },
     ];
 
     return of(questions.sort((a, b) => a.order - b.order).map(f => f as FormBase<any>));

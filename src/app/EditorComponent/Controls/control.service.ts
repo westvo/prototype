@@ -89,6 +89,15 @@ export class ControlFormService {
         order: 6,
         cssClass: 'col-md-6',
       },
+      {
+        controlType: 'date-picker',
+        key: 'birth_day',
+        label: 'Birthday',
+        type: '',
+        order: 7,
+        cssClass: 'col-md-6',
+        format: 'DD/MM/YYYY'
+      },
 
     ];
 

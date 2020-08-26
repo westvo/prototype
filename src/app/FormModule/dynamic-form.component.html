@@ -74,5 +74,10 @@
       </div>
      
     <!-- -->
+      <div  *ngSwitchCase="'date-picker'" style="padding: 5px;" style="padding: 5px;"
+      [ngStyle]="{'background-color': currentControl?.key === question?.key ? '#007bff40' : '' }">
+        <app-date-picket-component></app-date-picket-component>
+      </div>
+    <!--  -->
   </div>
 </div>

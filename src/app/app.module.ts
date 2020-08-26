@@ -25,6 +25,7 @@ import { ConfigFormComponent } from './FormModule/ConfigComponent/config.compone
 import { ConfigOptionControlService } from './FormModule/ConfigComponent/config.service';
 import { HttpClientModule } from '@angular/common/http';
 import { DropdownComponent } from './FormModule/DropdownComponent/dropdown.component';
+import { DatePickerComponent } from './FormModule/DatePickerComponent/date-picker.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { DropdownComponent } from './FormModule/DropdownComponent/dropdown.compo
     CreateControlComponent,
     ConfigFormComponent,
     DropdownComponent,
+    DatePickerComponent,
   ],
   imports: [
     FormsModule,
